@@ -1,0 +1,13 @@
+.idea
+.git
+.gitattributes
+.env
+/trash
+*/__pycache__
+/__pycache__
+/venv
+tests.py
+SomeRepos/Chars.db
+SomeRepos/TgBotdb.db
+ngrok.exe
+/assets
