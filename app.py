@@ -1,6 +1,8 @@
 import flet as ft
 import asyncio
 
+
+
 async def main(page: ft.Page):
     page.title = "Diamond Clicker"
     page.theme_mode = ft.ThemeMode.DARK
@@ -10,10 +12,14 @@ async def main(page: ft.Page):
     page.fonts = {"FulboArgenta": "fonts/FulboArgenta.ttf"}
     page.theme = ft.Theme(font_family="FulboArgenta")
 
+    message_iter = iter(
+        ["Всем поднюханным кликерам посвящается", "Добро пожаловать в webbbb", "Сюда можно будет впихнуть что угодно"])
+
 
     async def score_up(event: ft.ContainerTapEvent) -> None:
         score.data += 1
         score.value = int(score.data)
+
 
         image.scale = 0.95
 
@@ -22,12 +28,12 @@ async def main(page: ft.Page):
         score_counter.right = 0
         score_counter.bottom = 0
 
-        progres_bar.value += (1/30)
+        progres_bar.value += (1/20)
 
-        if score.data % 30 == 0:
+        if score.data % 20 == 0:
             page.snack_bar = ft.SnackBar(
                 content=ft.Text(
-                value="💎 +30",
+                value=next(message_iter),
                 size=20,
                 color="#5353ec",
                 text_align=ft.TextAlign.CENTER

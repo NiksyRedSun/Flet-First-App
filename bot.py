@@ -21,7 +21,7 @@ class Test(StatesGroup):
 
 def webapp_builder():
     builder = InlineKeyboardBuilder()
-    builder.button(text="Let's Click", web_app=WebAppInfo(url="https://e325-5-140-69-154.ngrok-free.app"))
+    builder.button(text="Let's Click", web_app=WebAppInfo(url="https://6962-5-140-69-154.ngrok-free.app"))
     return builder.as_markup()
 
 
@@ -30,14 +30,12 @@ async def command_start(message: Message) -> None:
     await message.reply(text=f"ClickClickClick", reply_markup=webapp_builder())
 
 
-
 async def main() -> None:
     dp = Dispatcher()
     dp.include_router(router)
     bot = Bot(token=os.environ.get("TOKEN"), default=DefaultBotProperties(parse_mode=ParseMode.HTML))
     await dp.start_polling(bot)
-
-
+    
 
 if __name__ == "__main__":
     logging.basicConfig(level=logging.INFO, stream=sys.stdout)
